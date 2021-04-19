@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Roller23/phansite-archive#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-rate-limit": "^5.2.6",
     "mongodb": "^3.6.6",

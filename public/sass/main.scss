@@ -9,6 +9,12 @@ body {
   box-sizing: border-box;
 }
 
+input, textarea {
+  border: 0px;
+  border-radius: 0px;
+  outline: none;
+}
+
 .main-site-container {
   .welcome-banner {
     width: 100%;
@@ -43,12 +49,203 @@ body {
 
   .box-wrapper {
     position: relative;
-    max-width: 1200px;
+    max-width: 1000px;
     width: 100%;
     min-height: 300px;
     background-color: #910000;
     margin: auto;
     margin-top: -40px;
     border-radius: 5px;
+    padding: 10px;
+
+    .input-wrapper {
+      margin-bottom: 10px;
+      .thread-search {
+        border-radius: 10px;
+        background-color: #580b0b;
+        color: white;
+        font-size: 18px;
+        padding: 8px 15px;
+        width: 100%;
+
+        &::placeholder {
+          color: rgb(161, 161, 161);
+        }
+      }
+    }
+
+    .thread-wrapper {
+      $leftWidth: 50px;
+      transition: 0.2s;
+      border-radius: 8px;
+      padding: 5px;
+      position: relative;
+      .sep {
+        width: 100%;
+        height: 1px;
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        background-color: #580b0b;
+      }
+      &:hover {
+        background-color: #a70707;
+      }
+      .left {
+        display: inline-block;
+        width: $leftWidth;
+        height: $leftWidth;
+        padding: 5px;
+        .avatar {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 8px;
+          vertical-align: top;
+        }
+      }
+      .right {
+        width: calc(100% - #{$leftWidth});
+        display: inline-block;
+        padding-left: 5px;
+        text-decoration: none;
+        vertical-align: text-top;
+        .top {
+          position: relative;
+        }
+        .tag {
+          display: inline-block;
+          background-color: black;
+          color: white;
+          text-decoration: none;
+          font-size: 12px;
+          padding: 2px 8px;
+          border-radius: 5px;
+          vertical-align: top;
+        }
+        .name {
+          display: inline-block;
+          color: white;
+          max-width: calc(100% - 200px);
+          width: 100%;
+        }
+        .count {
+          color: white;
+          position: absolute;
+          font-size: 14px;
+          right: 20px;
+          top: 10px;
+        }
+        .bottom {
+          margin-top: 5px;
+          .created {
+            color: white;
+            font-size: 12px;
+            color: rgb(204, 204, 204);
+          }
+        }
+      }
+    }
+  }
+}
+
+.user-profile-container {
+  width: 70%;
+  margin: auto;
+  $avatarHeight: 200px;
+  .banner {
+    width: 100%;
+    min-height: $avatarHeight;
+    height: 30vh;
+    position: relative;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 0px 0px 20px 20px;
+  }
+
+  @media (max-width: 1000px) {
+    width: 100%;
+    .banner {
+      border-radius: 0px;
+    }
+  }
+
+  .avatar-wrap {
+    margin-top: -100px;
+    margin-left: 40px;
+    z-index: 2;
+    position: relative;
+    .avatar {
+      display: inline-block;
+      vertical-align: bottom;
+      margin-top: -30px;
+      object-fit: cover;
+      width: $avatarHeight;
+      height: $avatarHeight;
+      border-radius: 40px;
+      position: relative;
+      box-shadow: 0px 0px 6px 2px #262626;
+    }
+    .name {
+      display: inline-block;
+      font-size: 30px;
+      margin-left: 15px;
+      margin-bottom: 10px;
+    }
+    @media (max-width: 1000px) {
+      margin-left: 10px;
+      .avatar {
+        width: calc(#{$avatarHeight} - 50px);
+        height: calc(#{$avatarHeight} - 50px);
+      }
+      .name {
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  .data-wrap {
+    margin-top: 50px;
+    .categories-wrap {
+      display: flex;
+      margin-bottom: 10px;
+      .category {
+        padding: 10px 20px;
+        cursor: pointer;
+        &.selected {
+          border-bottom: 2px solid white;
+        }
+      }
+    }
+    .left-right-wrapper {
+      display: flex;
+    }
+    .left, .right {
+      display: inline-block;
+      width: 70%;
+      vertical-align: top;
+      padding-right: 20px;
+      &.right {
+        width: 30%;
+        padding-left: 40px;
+      }
+    }
+
+    .left {
+      border-right: 1px solid gray;
+      right: 20px;
+    }
+    @media (max-width: 1000px) {
+      .right {
+        padding-left: 10px !important;
+        width: 40% !important;
+      }
+      .left {
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 60% !important;
+      }
+    }
   }
 }

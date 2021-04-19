@@ -9,6 +9,12 @@ body {
   box-sizing: border-box;
 }
 
+input, textarea {
+  border: 0px;
+  border-radius: 0px;
+  outline: none;
+}
+
 .main-site-container .welcome-banner {
   width: 100%;
   height: 25vh;
@@ -41,13 +47,199 @@ body {
 }
 .main-site-container .box-wrapper {
   position: relative;
-  max-width: 1200px;
+  max-width: 1000px;
   width: 100%;
   min-height: 300px;
   background-color: #910000;
   margin: auto;
   margin-top: -40px;
   border-radius: 5px;
+  padding: 10px;
+}
+.main-site-container .box-wrapper .input-wrapper {
+  margin-bottom: 10px;
+}
+.main-site-container .box-wrapper .input-wrapper .thread-search {
+  border-radius: 10px;
+  background-color: #580b0b;
+  color: white;
+  font-size: 18px;
+  padding: 8px 15px;
+  width: 100%;
+}
+.main-site-container .box-wrapper .input-wrapper .thread-search::placeholder {
+  color: #a1a1a1;
+}
+.main-site-container .box-wrapper .thread-wrapper {
+  transition: 0.2s;
+  border-radius: 8px;
+  padding: 5px;
+  position: relative;
+}
+.main-site-container .box-wrapper .thread-wrapper .sep {
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  background-color: #580b0b;
+}
+.main-site-container .box-wrapper .thread-wrapper:hover {
+  background-color: #a70707;
+}
+.main-site-container .box-wrapper .thread-wrapper .left {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+}
+.main-site-container .box-wrapper .thread-wrapper .left .avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  vertical-align: top;
+}
+.main-site-container .box-wrapper .thread-wrapper .right {
+  width: calc(100% - 50px);
+  display: inline-block;
+  padding-left: 5px;
+  text-decoration: none;
+  vertical-align: text-top;
+}
+.main-site-container .box-wrapper .thread-wrapper .right .top {
+  position: relative;
+}
+.main-site-container .box-wrapper .thread-wrapper .right .tag {
+  display: inline-block;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 5px;
+  vertical-align: top;
+}
+.main-site-container .box-wrapper .thread-wrapper .right .name {
+  display: inline-block;
+  color: white;
+  max-width: calc(100% - 200px);
+  width: 100%;
+}
+.main-site-container .box-wrapper .thread-wrapper .right .count {
+  color: white;
+  position: absolute;
+  font-size: 14px;
+  right: 20px;
+  top: 10px;
+}
+.main-site-container .box-wrapper .thread-wrapper .right .bottom {
+  margin-top: 5px;
+}
+.main-site-container .box-wrapper .thread-wrapper .right .bottom .created {
+  color: white;
+  font-size: 12px;
+  color: #cccccc;
+}
+
+.user-profile-container {
+  width: 70%;
+  margin: auto;
+}
+.user-profile-container .banner {
+  width: 100%;
+  min-height: 200px;
+  height: 30vh;
+  position: relative;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 0px 0px 20px 20px;
+}
+@media (max-width: 1000px) {
+  .user-profile-container {
+    width: 100%;
+  }
+  .user-profile-container .banner {
+    border-radius: 0px;
+  }
+}
+.user-profile-container .avatar-wrap {
+  margin-top: -100px;
+  margin-left: 40px;
+  z-index: 2;
+  position: relative;
+}
+.user-profile-container .avatar-wrap .avatar {
+  display: inline-block;
+  vertical-align: bottom;
+  margin-top: -30px;
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 40px;
+  position: relative;
+  box-shadow: 0px 0px 6px 2px #262626;
+}
+.user-profile-container .avatar-wrap .name {
+  display: inline-block;
+  font-size: 30px;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+@media (max-width: 1000px) {
+  .user-profile-container .avatar-wrap {
+    margin-left: 10px;
+  }
+  .user-profile-container .avatar-wrap .avatar {
+    width: calc(200px - 50px);
+    height: calc(200px - 50px);
+  }
+  .user-profile-container .avatar-wrap .name {
+    margin-bottom: 0px;
+  }
+}
+.user-profile-container .data-wrap {
+  margin-top: 50px;
+}
+.user-profile-container .data-wrap .categories-wrap {
+  display: flex;
+  margin-bottom: 10px;
+}
+.user-profile-container .data-wrap .categories-wrap .category {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.user-profile-container .data-wrap .categories-wrap .category.selected {
+  border-bottom: 2px solid white;
+}
+.user-profile-container .data-wrap .left-right-wrapper {
+  display: flex;
+}
+.user-profile-container .data-wrap .left, .user-profile-container .data-wrap .right {
+  display: inline-block;
+  width: 70%;
+  vertical-align: top;
+  padding-right: 20px;
+}
+.user-profile-container .data-wrap .left.right, .user-profile-container .data-wrap .right.right {
+  width: 30%;
+  padding-left: 40px;
+}
+.user-profile-container .data-wrap .left {
+  border-right: 1px solid gray;
+  right: 20px;
+}
+@media (max-width: 1000px) {
+  .user-profile-container .data-wrap .right {
+    padding-left: 10px !important;
+    width: 40% !important;
+  }
+  .user-profile-container .data-wrap .left {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 60% !important;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

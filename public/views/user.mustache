@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{#user}}{{username}}{{/user}}'s profile</title>
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+  <div class="user-profile-container">
+    <div class="banner"
+      style="background-image:url(https://res.cloudinary.com/phansite/image/upload/backgrounds/{{#user}}{{username}}{{/user}})">
+    </div>
+    <div class="avatar-wrap">
+      <img
+      src="https://res.cloudinary.com/phansite/image/upload/avatars/{{#user}}{{username}}{{/user}}"
+      class="avatar">
+      <div class="name">
+        {{#user}}{{username}}{{/user}}'s profile
+      </div>
+    </div>
+    <div class="data-wrap">
+      <div class="categories-wrap">
+        <div class="category selected">About</div>
+        <div class="category">Threads</div>
+        <div class="category">Posts</div>
+      </div>
+      <div class="left-right-wrapper">
+        <div class="left">
+          <div class="about">
+            <p>{{#user}}{{about}}{{/user}}</p>
+          </div>
+          <div class="threads-wrap">
+  
+          </div>
+          <div class="posts-wrap">
+  
+          </div>
+        </div><!--
+        --><div class="right">
+          <p>Posts: {{postsCount}}</p>
+          <p>Threads: {{threadsCount}}</p>
+          <p>Joined: <span class="time" time="{{#user}}{{joined}}{{/user}}"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+  integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.33/moment-timezone-with-data-10-year-range.min.js"
+  integrity="sha512-48hjVXIRd5d3sGKDfphGflqnxq91J14nwVO5Q6dHhK66n9XjP4zg0YR8IJRNZSJAVCrjjTU4fgpQgXeyx2lHNA=="
+  crossorigin="anonymous"></script>
+  <script src="/scripts/time.js"></script>
+  <script src="/scripts/profile.js"></script>
+</body>
+</html>

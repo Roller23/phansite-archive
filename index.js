@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const _http = require('http');
@@ -40,9 +41,25 @@ const onlyDigits = str => /^\d+$/.test(str);
   app.use(express.json());
 
   app.get('/', async (req, res) => {
-    const threads = await db.collection('threads').find({}).sort({id: 1}).limit(50).toArray();
+    const threads = await db.collection('threads').find({}).sort({id: -1}).limit(50).toArray();
     res.render('index', {
       threads
+    });
+  });
+
+  app.get('/user/:name', async (req, res) => {
+    const username = req.params.name;
+    const user = await db.collection('users').findOne({username});
+    if (!user) {
+      return res.render('user404', {username});
+    }
+    const query = {creator: username};
+    const threads = await db.collection('threads').find(query).limit(20).toArray();
+    const posts = await db.collection('posts').find(query).limit(20).toArray();
+    const postsCount = await db.collection('posts').countDocuments(query);
+    const threadsCount = await db.collection('threads').countDocuments(query);
+    res.render('user', {
+      user, threads, posts, postsCount, threadsCount
     });
   });
 

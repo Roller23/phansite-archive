@@ -19,10 +19,49 @@
     </div>
 
     <div class="box-wrapper">
-      {{#threads}}
-        <div>{{name}}</div>
-      {{/threads}}
+      <div class="input-wrapper">
+        <input type="text" placeholder="Search for a thread" class="thread-search">
+      </div>
+      <div class="threads-wrapper">
+        {{#threads}}
+          <div class="thread-wrapper">
+            <a class="left" href="/user/{{creator}}">
+              <img 
+                src="https://i.pinimg.com/originals/64/21/e6/6421e6cb725f2a0fe6be9aa4073c4245.jpg"
+                check-src="https://res.cloudinary.com/phansite/image/upload/avatars/{{creator}}"
+                class="avatar">
+            </a><!--
+            --><a class="right" href="/thread/{{id}}">
+              <div class="top">
+                <div class="tag">
+                  {{tag}}
+                </div>
+                <div class="name">
+                  {{{name}}}
+                </div>
+                <div class="count">
+                  {{posts}} posts
+                </div>
+              </div>
+              <div class="bottom">
+                <div class="created">
+                  By {{creator}}, <span class="time" time="{{date}}"></span>
+                </div>
+              </div>
+            </a>
+            <div class="sep"></div>
+          </div>
+        {{/threads}}
+      </div>
     </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+  integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.33/moment-timezone-with-data-10-year-range.min.js"
+  integrity="sha512-48hjVXIRd5d3sGKDfphGflqnxq91J14nwVO5Q6dHhK66n9XjP4zg0YR8IJRNZSJAVCrjjTU4fgpQgXeyx2lHNA=="
+  crossorigin="anonymous"></script>
+  <script src="/scripts/time.js"></script>
+  <script src="/scripts/main.js"></script>
 </body>
 </html>
