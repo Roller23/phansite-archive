@@ -59,7 +59,7 @@ const onlyDigits = str => /^\d+$/.test(str);
     const posts = await db.collection('posts').find(query).limit(20).toArray();
     const postsCount = await db.collection('posts').countDocuments(query);
     const threadsCount = await db.collection('threads').countDocuments(query);
-    user.about = anchorme(user.about);
+    user.about = user.about ? anchorme(user.about) : '';
     res.render('user', {
       user, threads, posts, postsCount, threadsCount
     });
