@@ -1,6 +1,8 @@
+// @ts-check
 const express = require('express');
 const app = express();
-const http = require('http').Server(app);
+const _http = require('http');
+const http = new _http.Server(app);
 const MongoClient = require('mongodb').MongoClient;
 const rateLimit = require("express-rate-limit");
 const mustacheExpress = require('mustache-express');
@@ -48,7 +50,7 @@ function connectToDb() {
     if (!(/^\d+$/.test(id))) { // check if id contains only digits
       return res.json({success: false, msg: 'invalid user id'});
     }
-    const user = await db.collection('users').findOne({id});
+    const user = await db.collection('users').findOne({id: Number(id)});
     if (!user) {
       return res.json({success: false, msg: 'user not found'});
     }
