@@ -40,7 +40,7 @@ function connectToDb() {
     res.render('index');
   });
 
-  app.get('/userdata/:id', (req, res) => {
+  app.get('/userdata/:id', async (req, res) => {
     const id = req.params.id;
     if (!id) {
       return res.json({success: false, msg: 'no user id provided'});
