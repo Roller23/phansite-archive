@@ -1,6 +1,8 @@
 body {
   margin: 0px;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+  color: white;
 }
 
 * {
@@ -9,7 +11,7 @@ body {
 
 .main-site-container .welcome-banner {
   width: 100%;
-  height: 20vh;
+  height: 25vh;
   position: relative;
   background-position: center center;
   background-size: cover;
@@ -18,10 +20,16 @@ body {
 }
 .main-site-container .welcome-banner .text-wrap {
   position: absolute;
-  left: 10%;
+  left: 5%;
   top: 50%;
   transform: translateY(-50%);
-  color: white;
+  color: #ebebeb;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
 }
 .main-site-container .welcome-banner .text-wrap .header {
   font-size: 30px;
@@ -30,6 +38,14 @@ body {
 }
 .main-site-container .welcome-banner .text-wrap .desc {
   font-size: 17px;
+}
+.main-site-container .box-wrapper {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  min-height: 300px;
+  background-color: #660000;
+  margin-top: -40px;
 }
 
 /*# sourceMappingURL=main.css.map */
