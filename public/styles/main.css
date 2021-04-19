@@ -7,4 +7,29 @@ body {
   box-sizing: border-box;
 }
 
+.main-site-container .welcome-banner {
+  width: 100%;
+  height: 20vh;
+  position: relative;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(/images/banner.png);
+}
+.main-site-container .welcome-banner .text-wrap {
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+}
+.main-site-container .welcome-banner .text-wrap .header {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.main-site-container .welcome-banner .text-wrap .desc {
+  font-size: 17px;
+}
+
 /*# sourceMappingURL=main.css.map */
