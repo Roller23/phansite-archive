@@ -7,7 +7,7 @@ const mustacheExpress = require('mustache-express');
 
 function connectToDb() {
   return new Promise(resolve => {
-    const uri = `mongodb+srv://mishimadmin:${process.env.MONGO_PASSWORD}@phansite-archive.xekhf.mongodb.net/archive?retryWrites=true&w=majority`;
+    const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@phansite-archive.xekhf.mongodb.net/archive?retryWrites=true&w=majority`;
     const client = new MongoClient(uri, {useNewUrlParser: true, useUnifiedTopology: true});
     client.connect(err => {
       if (err) return resolve({err: err, db: null});
@@ -36,8 +36,24 @@ function connectToDb() {
   app.use(express.urlencoded({extended: false}));
   app.use(express.json());
 
-  app.get('/', (req, res) => {
+  app.get('/', async (req, res) => {
     res.render('index');
+  });
+
+  app.get('/userdata/:id', (req, res) => {
+    const id = req.params.id;
+    if (!id) {
+      return res.json({success: false, msg: 'no user id provided'});
+    }
+    if (!(/^\d+$/.test(id))) { // check if id contains only digits
+      return res.json({success: false, msg: 'invalid user id'});
+    }
+    const user = await db.collection('users').findOne({id});
+    if (!user) {
+      return res.json({success: false, msg: 'user not found'});
+    }
+    delete user._id;
+    res.json({success: true, user})
   });
 
   const PORT = process.env.PORT || 3000;
