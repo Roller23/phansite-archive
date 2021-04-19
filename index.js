@@ -1,4 +1,3 @@
-// @ts-check
 const express = require('express');
 const app = express();
 const _http = require('http');
@@ -7,7 +6,7 @@ const MongoClient = require('mongodb').MongoClient;
 const rateLimit = require("express-rate-limit");
 const mustacheExpress = require('mustache-express');
 
-function connectToDb() {
+const connectToDb = () => {
   return new Promise(resolve => {
     const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@phansite-archive.xekhf.mongodb.net/archive?retryWrites=true&w=majority`;
     const client = new MongoClient(uri, {useNewUrlParser: true, useUnifiedTopology: true});
@@ -17,6 +16,8 @@ function connectToDb() {
     });
   });
 }
+
+const onlyDigits = str => /^\d+$/.test(str);
 
 (async () => {
   const {err, db} = await connectToDb();
@@ -47,7 +48,7 @@ function connectToDb() {
     if (!id) {
       return res.json({success: false, msg: 'no user id provided'});
     }
-    if (!(/^\d+$/.test(id))) { // check if id contains only digits
+    if (!onlyDigits(id)) {
       return res.json({success: false, msg: 'invalid user id'});
     }
     const user = await db.collection('users').findOne({id: Number(id)});
@@ -56,6 +57,28 @@ function connectToDb() {
     }
     delete user._id;
     res.json({success: true, user})
+  });
+
+  app.get('/threaddata/:id', async (req, res) => {
+    const id = req.params.id;
+    if (!id) {
+      return res.json({success: false, msg: 'no thread id provided'});
+    }
+    if (!onlyDigits(id)) {
+      return res.json({success: false, msg: 'invalid thread id'});
+    }
+    const idNumber = Number(id);
+    const thread = await db.collection('threads').findOne({id: idNumber});
+    if (!thread) {
+      return res.json({success: false, msg: 'thread not found'});
+    }
+    delete thread._id;
+    const replies = await db.collection('posts').find({thread: idNumber}).toArray();
+    for (let reply of replies) {
+      delete reply._id;
+    }
+    thread.replies = replies;
+    res.json({success: true, thread})
   });
 
   const PORT = process.env.PORT || 3000;
