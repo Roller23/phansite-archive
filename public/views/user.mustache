@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
   <title>{{#user}}{{username}}{{/user}}'s profile</title>
   <link rel="stylesheet" href="/styles/main.css">
 </head>
@@ -22,19 +22,17 @@
     </div>
     <div class="data-wrap">
       <div class="categories-wrap">
-        <div class="category selected">About</div>
-        <div class="category">Threads</div>
-        <div class="category">Posts</div>
+        <div class="category selected" category="about">About</div>
+        <div class="category" category="threads">Threads</div>
+        <div class="category" category="posts">Posts</div>
       </div>
       <div class="left-right-wrapper">
         <div class="left">
-          <div class="about">
-            <p>{{#user}}{{about}}{{/user}}</p>
-          </div>
-          <div class="threads-wrap">
+          <div class="about" category="about"><p>{{#user}}{{{about}}}{{/user}}</p></div>
+          <div class="threads-wrap" category="threads">
   
           </div>
-          <div class="posts-wrap">
+          <div class="posts-wrap" category="posts">
   
           </div>
         </div><!--

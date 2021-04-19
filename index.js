@@ -6,6 +6,7 @@ const http = new _http.Server(app);
 const MongoClient = require('mongodb').MongoClient;
 const rateLimit = require("express-rate-limit");
 const mustacheExpress = require('mustache-express');
+const anchorme = require('anchorme').default;
 
 const connectToDb = () => {
   return new Promise(resolve => {
@@ -58,6 +59,7 @@ const onlyDigits = str => /^\d+$/.test(str);
     const posts = await db.collection('posts').find(query).limit(20).toArray();
     const postsCount = await db.collection('posts').countDocuments(query);
     const threadsCount = await db.collection('threads').countDocuments(query);
+    user.about = anchorme(user.about);
     res.render('user', {
       user, threads, posts, postsCount, threadsCount
     });
