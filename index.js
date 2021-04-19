@@ -21,6 +21,9 @@ function connectToDb() {
     return console.error(err);
   }
 
+  app.get('/', (req, res) => {
+    res.send('Hello there');
+  });
 
   const PORT = process.env.PORT || 3000;
   http.listen(PORT, () => {
