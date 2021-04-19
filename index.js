@@ -40,7 +40,10 @@ const onlyDigits = str => /^\d+$/.test(str);
   app.use(express.json());
 
   app.get('/', async (req, res) => {
-    res.render('index');
+    const threads = await db.collection('threads').find({}).sort({id: 1}).limit(50).toArray();
+    res.render('index', {
+      threads
+    });
   });
 
   app.get('/userdata/:id', async (req, res) => {

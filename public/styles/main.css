@@ -1,7 +1,7 @@
 body {
   margin: 0px;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: black;
+  background-color: #181818;
   color: white;
 }
 
@@ -32,9 +32,9 @@ body {
   backdrop-filter: blur(3px);
 }
 .main-site-container .welcome-banner .text-wrap .header {
-  font-size: 30px;
+  font-size: 35px;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 .main-site-container .welcome-banner .text-wrap .desc {
   font-size: 17px;
@@ -44,8 +44,10 @@ body {
   max-width: 1200px;
   width: 100%;
   min-height: 300px;
-  background-color: #660000;
+  background-color: #910000;
+  margin: auto;
   margin-top: -40px;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=main.css.map */
