@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const MongoClient = require('mongodb').MongoClient;
+const rateLimit = require("express-rate-limit");
+const mustacheExpress = require('mustache-express');
 
 function connectToDb() {
   return new Promise(resolve => {
@@ -21,8 +23,21 @@ function connectToDb() {
     return console.error(err);
   }
 
+  app.use(express.static('public'))
+  app.engine('mustache', mustacheExpress());
+  app.set('view engine', 'mustache');
+  app.set('views', __dirname + '/public/views');
+  // limit to 60 requests per minute
+  app.use(rateLimit({
+    windowMs: 60 * 1000 * 1,
+    max: 60
+  }));
+
+  app.use(express.urlencoded({extended: false}));
+  app.use(express.json());
+
   app.get('/', (req, res) => {
-    res.send('Hello there');
+    res.render('index');
   });
 
   const PORT = process.env.PORT || 3000;

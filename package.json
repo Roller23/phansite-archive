@@ -18,6 +18,8 @@
   "homepage": "https://github.com/Roller23/phansite-archive#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongodb": "^3.6.6"
+    "express-rate-limit": "^5.2.6",
+    "mongodb": "^3.6.6",
+    "mustache-express": "^1.3.0"
   }
 }
