@@ -21,6 +21,10 @@ function connectToDb() {
     return console.error(err);
   }
 
+  const users = await db.collection('users').find({}).toArray();
+
+  console.log(users);
+
   app.get('/', (req, res) => {
     res.send('Hello there');
   });
