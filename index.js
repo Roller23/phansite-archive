@@ -27,5 +27,3 @@ function connectToDb() {
     console.log('listening on port ' + PORT);
   });
 })();
-
-// 8ME8rbpX7vq3k1Yw
