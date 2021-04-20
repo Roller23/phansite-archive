@@ -27,4 +27,8 @@
     image.src = src;
   });
 
+  $All('spoiler').forEach(spoiler => {
+    spoiler.addEventListener('click', () => spoiler.classList.add('clicked'));
+  });
+
 })();
