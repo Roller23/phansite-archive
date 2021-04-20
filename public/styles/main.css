@@ -448,6 +448,7 @@ input, textarea {
 .thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .nickname-wrapper .nick {
   padding-right: 8px;
   text-decoration: none;
+  color: white;
 }
 .thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .nickname-wrapper .time {
   font-size: 12px;
