@@ -24,6 +24,8 @@ input, textarea {
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url(/images/banner.png);
+    display: block;
+    text-decoration: none;
     .text-wrap {
       position: absolute;
       left: 5%;
@@ -173,6 +175,19 @@ input, textarea {
   width: 70%;
   margin: auto;
   $avatarHeight: 200px;
+  .home {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: #000000;
+    color: rgb(207, 207, 207);
+    font-size: 24px;
+    padding: 10px 15px;
+    padding-right: 20px;
+    border-radius: 0px 0px 15px 0px;
+    text-decoration: none;
+    z-index: 3;
+  }
   .banner {
     width: 100%;
     min-height: $avatarHeight;
@@ -264,7 +279,7 @@ input, textarea {
         color: white;
       }
       quote {
-        background-color: black;
+        background-color: #171717;
         display: block;
         padding: 8px 15px;
         color: lightgray;
@@ -355,6 +370,8 @@ input, textarea {
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url(/images/banner.png);
+    display: block;
+    text-decoration: none;
     
     .text-wrap {
       position: absolute;
@@ -409,6 +426,9 @@ input, textarea {
     .reply-wrapper {
       width: 100%;
       $leftWidth: 80px;
+      @media (max-width: 1000px) {
+        $leftWidth: 60px;
+      }
       padding: 20px;
       .reply-left {
         display: inline-block;
@@ -534,7 +554,7 @@ input, textarea {
           }
 
           quote {
-            background-color: black;
+            background-color: #171717;
             display: block;
             padding: 8px 15px;
             color: lightgray;
@@ -586,6 +606,18 @@ input, textarea {
             left: 50%;
             transform: translate(-50%, -50%);
           }
+        }
+      }
+      @media (max-width: 1000px) {
+        padding: 20px 0px;
+        .thread-name {
+          font-size: 30px !important;
+        }
+        .reply-right {
+          padding: 0px 10px;
+        }
+        .content-container {
+          padding: 15px 20px !important;
         }
       }
     }

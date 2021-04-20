@@ -23,6 +23,8 @@ input, textarea {
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url(/images/banner.png);
+  display: block;
+  text-decoration: none;
 }
 .main-site-container .welcome-banner .text-wrap {
   position: absolute;
@@ -166,6 +168,19 @@ input, textarea {
   width: 70%;
   margin: auto;
 }
+.user-profile-container .home {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  background-color: #000000;
+  color: #cfcfcf;
+  font-size: 24px;
+  padding: 10px 15px;
+  padding-right: 20px;
+  border-radius: 0px 0px 15px 0px;
+  text-decoration: none;
+  z-index: 3;
+}
 .user-profile-container .banner {
   width: 100%;
   min-height: 200px;
@@ -258,7 +273,7 @@ input, textarea {
   color: white;
 }
 .user-profile-container .data-wrap .about quote {
-  background-color: black;
+  background-color: #171717;
   display: block;
   padding: 8px 15px;
   color: lightgray;
@@ -338,6 +353,8 @@ input, textarea {
   background-size: cover;
   background-repeat: no-repeat;
   background-image: url(/images/banner.png);
+  display: block;
+  text-decoration: none;
 }
 .thread-main-wrapper .thread-banner .text-wrap {
   position: absolute;
@@ -392,21 +409,21 @@ input, textarea {
 }
 .thread-main-wrapper .box-wrapper .reply-wrapper .reply-left {
   display: inline-block;
-  width: 80px;
+  width: 60px;
   color: white;
   text-decoration: none;
   vertical-align: top;
 }
 .thread-main-wrapper .box-wrapper .reply-wrapper .reply-left .avatar {
   display: block;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   object-fit: cover;
   border-radius: 20px;
 }
 .thread-main-wrapper .box-wrapper .reply-wrapper .reply-right {
   display: inline-block;
-  width: calc(100% - 80px);
+  width: calc(100% - 60px);
   padding: 0px 20px;
 }
 .thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container {
@@ -503,7 +520,7 @@ input, textarea {
   margin-top: 10px;
 }
 .thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container quote {
-  background-color: black;
+  background-color: #171717;
   display: block;
   padding: 8px 15px;
   color: lightgray;
@@ -549,6 +566,20 @@ input, textarea {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+@media (max-width: 1000px) {
+  .thread-main-wrapper .box-wrapper .reply-wrapper {
+    padding: 20px 0px;
+  }
+  .thread-main-wrapper .box-wrapper .reply-wrapper .thread-name {
+    font-size: 30px !important;
+  }
+  .thread-main-wrapper .box-wrapper .reply-wrapper .reply-right {
+    padding: 0px 10px;
+  }
+  .thread-main-wrapper .box-wrapper .reply-wrapper .content-container {
+    padding: 15px 20px !important;
+  }
 }
 .thread-main-wrapper .thread-buttons {
   text-align: center;
