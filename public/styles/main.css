@@ -503,6 +503,7 @@ input, textarea {
   padding: 2px 5px;
   border-radius: 5px;
   z-index: 3;
+  white-space: nowrap;
 }
 .thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .like-wrap:hover .tooltip {
   opacity: 1;
@@ -513,6 +514,7 @@ input, textarea {
   margin: 5px 0px;
   margin-bottom: 20px;
   font-weight: bold;
+  word-break: break-word;
 }
 .thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .edited {
   font-size: 12px;

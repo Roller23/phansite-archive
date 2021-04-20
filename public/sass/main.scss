@@ -530,6 +530,7 @@ input, textarea {
               padding: 2px 5px;
               border-radius: 5px;
               z-index: 3;
+              white-space: nowrap;
             }
 
             &:hover {
@@ -545,6 +546,7 @@ input, textarea {
             margin: 5px 0px;
             margin-bottom: 20px;
             font-weight: bold;
+            word-break: break-word;
           }
 
           .edited {
