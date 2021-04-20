@@ -50,7 +50,7 @@
     image.appendChild(link);
   });
 
-  $All('.content-container').forEach(content => {
+  $All('.content-container .content').forEach(content => {
     content.innerHTML = anchorme(content.innerHTML);
     content.querySelectorAll('a').forEach(a => {
       a.classList.add('link');
