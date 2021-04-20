@@ -33,9 +33,7 @@
             </a><!--
             --><a class="right" href="/thread/{{id}}">
               <div class="top">
-                <div class="tag">
-                  {{tag}}
-                </div>
+                <div class="tag">{{tag}}</div>
                 <div class="name">
                   {{{name}}}
                 </div>
@@ -52,6 +50,18 @@
             <div class="sep"></div>
           </div>
         {{/threads}}
+        <div class="page-buttons">
+          {{#showPrev}}
+            <a href="/page/{{prevPage}}">
+              <button type="button" class="prev-page">Previous</button>
+            </a>
+          {{/showPrev}}
+          {{#showNext}}
+            <a href="/page/{{nextPage}}">
+              <button type="button" class="next-page">Next</button>
+            </a>
+          {{/showNext}}
+        </div>
       </div>
     </div>
   </div>

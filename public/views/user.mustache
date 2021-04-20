@@ -28,12 +28,22 @@
       </div>
       <div class="left-right-wrapper">
         <div class="left">
-          <div class="about" category="about"><p>{{#user}}{{{about}}}{{/user}}</p></div>
+          <div class="about" category="about"><p>{{#user}}{{{anchoredAbout}}}{{/user}}</p></div>
           <div class="threads-wrap" category="threads">
-  
+            {{#threads}}
+              <a class="thread" href="/thread/{{id}}">
+                <div class="name">{{name}}</div>
+                <div class="content">{{content}}</div>
+              </a>
+            {{/threads}}
           </div>
           <div class="posts-wrap" category="posts">
-  
+            {{#posts}}
+              <a class="thread" href="/thread/{{thread}}">
+                <div class="name">{{#postThread}}{{name}}{{/postThread}}</div>
+                <div class="content">{{content}}</div>
+              </a>
+            {{/posts}}
           </div>
         </div><!--
         --><div class="right">

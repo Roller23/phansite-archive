@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{shortName}} - Phansite Archive</title>
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+  <div class="thread-main-wrapper">
+    <div class="thread-banner">
+      <div class="text-wrap">
+        <div class="header">Welcome to Phansite archive</div>
+        <div class="desc">
+          You'll find here all archived threads from Phansite forum.
+        </div>
+      </div>
+    </div>
+
+    <div class="box-wrapper">
+      <div class="input-wrapper">
+        <input type="text" placeholder="Search in this thread" class="thread-search">
+      </div>
+      <div class="replies-wrapper">
+        {{#firstPage}}
+          <div class="reply-wrapper">
+            <a class="reply-left" href="/user/{{#thread}}{{creator}}{{/thread}}">
+              <img
+                src="https://i.pinimg.com/originals/64/21/e6/6421e6cb725f2a0fe6be9aa4073c4245.jpg"
+                src-check="https://res.cloudinary.com/phansite/image/upload/avatars/{{#thread}}{{creator}}{{/thread}}"
+                class="avatar">
+            </a><!--
+            --><div class="reply-right">
+              <div class="content-container">
+                <div class="nickname-wrapper"><!--
+                --><a class="nick" href="/user/{{#thread}}{{creator}}{{/thread}}">{{#thread}}{{creator}}{{/thread}}</a><!--
+                  --><span class="time" time="{{#thread}}{{date}}{{/thread}}"></span>
+                </div><!--
+                --><div class="thread-name">{{#thread}}{{{name}}}{{/thread}}</div><!--
+                --><div class="content-wrap">{{#thread}}{{{content}}}{{/thread}}</div><!--
+              --></div>
+            </div>
+          </div>
+        {{/firstPage}}
+        {{#replies}}
+          <div class="reply-wrapper">
+            <a class="reply-left" href="/user/{{creator}}">
+              <img
+              src="https://i.pinimg.com/originals/64/21/e6/6421e6cb725f2a0fe6be9aa4073c4245.jpg"
+              src-check="https://res.cloudinary.com/phansite/image/upload/avatars/{{creator}}"
+              class="avatar">
+            </a><!--
+            --><div class="reply-right">
+              <div class="content-container">
+                <div class="nickname-wrapper">
+                  <a class="nick" href="/user/{{creator}}">{{creator}}</a><!--
+                  --><span class="time" time="{{date}}"></span>
+                </div>
+                <div class="content">{{{content}}}</div>
+                <div class="likes-wrapper"><!--
+                -->{{#likes}}
+                    <a href="/user/{{.}}"
+                      class="like-wrap">
+                      <img class="avatar"
+                        src-check="https://res.cloudinary.com/phansite/image/upload/avatars/{{.}}"
+                        src="https://i.pinimg.com/originals/64/21/e6/6421e6cb725f2a0fe6be9aa4073c4245.jpg">
+                      <div class="tooltip" name="{{.}}">{{.}}</div>
+                    </a>
+                  {{/likes}}<!--
+                --></div>
+              </div>
+            </div>
+          </div>
+        {{/replies}}
+        {{#showButtons}}
+          <div class="thread-buttons">
+            {{#showPrev}}
+              <a href="/thread/{{#thread}}{{id}}{{/thread}}/{{prev}}">
+                <button type="button" class="prev-thread">Previous</button>
+              </a>
+            {{/showPrev}}
+            {{#showNext}}
+              <a href="/thread/{{#thread}}{{id}}{{/thread}}/{{next}}">
+                <button type="button" class="next-thread">Next</button>
+              </a>
+            {{/showNext}}
+          </div>
+        {{/showButtons}}
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+  integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.33/moment-timezone-with-data-10-year-range.min.js"
+  integrity="sha512-48hjVXIRd5d3sGKDfphGflqnxq91J14nwVO5Q6dHhK66n9XjP4zg0YR8IJRNZSJAVCrjjTU4fgpQgXeyx2lHNA=="
+  crossorigin="anonymous"></script>
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/anchorme/2.1.2/anchorme.min.js"
+  integrity="sha512-pzjbnnM49wKywLKQ3LKF5i6gvkl5Ye53LR76MfhBNdF+GvRFeYksfnSPaIunkTpf3HpIhUh54PRxT7McroTIBw=="
+  crossorigin="anonymous"></script>
+  <script src="/scripts/thread.js"></script>
+  <script src="/scripts/time.js"></script>
+</body>
+</html>

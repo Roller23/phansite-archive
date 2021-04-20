@@ -55,6 +55,7 @@ input, textarea {
   margin-top: -50px;
   border-radius: 5px;
   padding: 10px;
+  margin-bottom: 30px;
 }
 .main-site-container .box-wrapper .input-wrapper {
   margin-bottom: 10px;
@@ -120,6 +121,9 @@ input, textarea {
   border-radius: 5px;
   vertical-align: top;
 }
+.main-site-container .box-wrapper .thread-wrapper .right .tag:empty {
+  display: none;
+}
 .main-site-container .box-wrapper .thread-wrapper .right .name {
   display: inline-block;
   color: white;
@@ -140,6 +144,22 @@ input, textarea {
   color: white;
   font-size: 12px;
   color: #cccccc;
+}
+.main-site-container .page-buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+.main-site-container .page-buttons a {
+  text-decoration: none;
+}
+.main-site-container .page-buttons button {
+  background-color: #580b0b;
+  color: white;
+  border: 0px;
+  border-radius: 10px;
+  padding: 8px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .user-profile-container {
@@ -237,6 +257,67 @@ input, textarea {
 .user-profile-container .data-wrap .about a {
   color: white;
 }
+.user-profile-container .data-wrap .about quote {
+  background-color: black;
+  display: block;
+  padding: 8px 15px;
+  color: lightgray;
+  border: 2px dotted gray;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+.user-profile-container .data-wrap .about quote::before {
+  content: attr(user) " said:";
+  display: block;
+  margin-bottom: 10px;
+  color: white;
+  font-size: 14px;
+}
+.user-profile-container .data-wrap .about .link {
+  color: white;
+  position: relative;
+}
+.user-profile-container .data-wrap .about .image {
+  max-width: 100%;
+  border-radius: 10px;
+}
+.user-profile-container .data-wrap .about .through {
+  text-decoration: line-through;
+}
+.user-profile-container .data-wrap .about .underline {
+  text-decoration: underline;
+}
+.user-profile-container .data-wrap .about spoiler {
+  background-color: black;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.user-profile-container .data-wrap .about spoiler.clicked {
+  background-color: unset;
+  color: white;
+  cursor: initial;
+}
+.user-profile-container .data-wrap .thread {
+  display: block;
+  padding-left: 10px;
+  border-left: 2px solid white;
+  margin-bottom: 10px;
+  text-decoration: none;
+  word-break: break-word;
+}
+.user-profile-container .data-wrap .thread .name {
+  color: white;
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+.user-profile-container .data-wrap .thread .content {
+  font-size: 14px;
+  color: lightgray;
+}
+.user-profile-container .data-wrap .threads-wrap, .user-profile-container .data-wrap .posts-wrap {
+  display: none;
+}
 @media (max-width: 1000px) {
   .user-profile-container .data-wrap .right {
     padding-left: 10px !important;
@@ -247,6 +328,242 @@ input, textarea {
     padding-right: 10px;
     width: 60% !important;
   }
+}
+
+.thread-main-wrapper .thread-banner {
+  width: 100%;
+  height: 35vh;
+  position: relative;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(/images/banner.png);
+}
+.thread-main-wrapper .thread-banner .text-wrap {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translateY(calc(-50% - 25px));
+  color: #ebebeb;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+.thread-main-wrapper .thread-banner .text-wrap .header {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.thread-main-wrapper .thread-banner .text-wrap .desc {
+  font-size: 17px;
+}
+.thread-main-wrapper .box-wrapper {
+  position: relative;
+  max-width: 1000px;
+  width: 100%;
+  min-height: 300px;
+  background-color: #910000;
+  margin: auto;
+  margin-top: -50px;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+.thread-main-wrapper .box-wrapper .input-wrapper {
+  margin-bottom: 10px;
+}
+.thread-main-wrapper .box-wrapper .input-wrapper .thread-search {
+  border-radius: 10px;
+  background-color: #580b0b;
+  color: white;
+  font-size: 18px;
+  padding: 8px 15px;
+  width: 100%;
+}
+.thread-main-wrapper .box-wrapper .input-wrapper .thread-search::placeholder {
+  color: #a1a1a1;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper {
+  width: 100%;
+  padding: 20px;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-left {
+  display: inline-block;
+  width: 80px;
+  color: white;
+  text-decoration: none;
+  vertical-align: top;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-left .avatar {
+  display: block;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right {
+  display: inline-block;
+  width: calc(100% - 80px);
+  padding: 0px 20px;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container {
+  width: 100%;
+  padding: 15px 30px;
+  padding-top: 20px;
+  border-radius: 20px;
+  background-color: #580b0b;
+  position: relative;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .nickname-wrapper {
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  transform: translateY(calc(-100% + 11px));
+  padding: 5px 15px;
+  background-color: black;
+  color: white;
+  border-radius: 15px;
+  font-size: 14px;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .nickname-wrapper .nick {
+  padding-right: 8px;
+  text-decoration: none;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .nickname-wrapper .time {
+  font-size: 12px;
+  color: lightgray;
+  padding-left: 8px;
+  border-left: 1px solid white;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .content {
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .likes-wrapper {
+  padding-top: 10px;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .likes-wrapper:empty {
+  padding-top: 0px;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .likes-wrapper:not(:empty)::before {
+  content: "Upvoted by";
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  color: lightgray;
+  margin-right: 10px;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .like-wrap {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 50%;
+  margin-left: -5px;
+  text-decoration: none;
+  vertical-align: middle;
+  position: relative;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .like-wrap .avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .like-wrap .tooltip {
+  color: black;
+  background-color: white;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, -90%);
+  transition: 0.2s;
+  opacity: 0;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 5px;
+  z-index: 3;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .like-wrap:hover .tooltip {
+  opacity: 1;
+  transform: translate(-50%, calc(-100% - 5px));
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .thread-name {
+  font-size: 40px;
+  margin: 5px 0px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .edited {
+  font-size: 12px;
+  color: lightgray;
+  margin-top: 10px;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container quote {
+  background-color: black;
+  display: block;
+  padding: 8px 15px;
+  color: lightgray;
+  border: 2px dotted gray;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container quote::before {
+  content: attr(user) " said:";
+  display: block;
+  margin-bottom: 10px;
+  color: white;
+  font-size: 14px;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .link {
+  color: white;
+  position: relative;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .image {
+  max-width: 100%;
+  border-radius: 10px;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .through {
+  text-decoration: line-through;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .underline {
+  text-decoration: underline;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container spoiler {
+  background-color: black;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container spoiler.clicked {
+  background-color: unset;
+  color: white;
+  cursor: initial;
+}
+.thread-main-wrapper .box-wrapper .reply-wrapper .reply-right .content-container .youtube-play {
+  position: absolute;
+  width: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.thread-main-wrapper .thread-buttons {
+  text-align: center;
+}
+.thread-main-wrapper .thread-buttons a {
+  text-decoration: none;
+}
+.thread-main-wrapper .thread-buttons button {
+  background-color: #580b0b;
+  color: white;
+  border: 0px;
+  border-radius: 10px;
+  padding: 8px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */

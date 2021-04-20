@@ -12,4 +12,19 @@
       $(`.left-right-wrapper [category='${cat}']`).style.display = 'block';
     });
   });
+
+  $All('.about a').forEach(link => {
+    const image = new Image();
+    const src = link.getAttribute('href');
+    image.onload = () => {
+      const img = document.createElement('img');
+      img.classList.add('image');
+      img.src = src;
+      link.innerHTML = '';
+      link.appendChild(img);
+    }
+    image.onerror = () => {};
+    image.src = src;
+  });
+
 })();
