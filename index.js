@@ -7,6 +7,7 @@ const MongoClient = require('mongodb').MongoClient;
 const rateLimit = require("express-rate-limit");
 const mustacheExpress = require('mustache-express');
 const anchorme = require('anchorme').default;
+const htmlspecialchars = require('htmlspecialchars');
 
 const connectToDb = () => {
   return new Promise(resolve => {
@@ -74,6 +75,36 @@ const threadsPerPage = 50;
       showNext: pageNumber !== (pages + 1),
       prevPage: pageNumber - 1,
       nextPage: pageNumber + 1
+    });
+  });
+
+  app.get('/search/:type/:query', async (req, res) => {
+    const query = req.params.query;
+    const type = req.params.type;
+    const validTypes = ['t', 'tc', 'c', 'p'];
+    if (!validTypes.includes(type)) {
+      return res.redirect('/');
+    }
+    if (query.length < 3 || query.length > 100) {
+      return res.redirect('/');
+    }
+    const escaped = htmlspecialchars(query);
+    const $or = (() => {
+      if (type === 't') return [{name: {$regex: escaped, $options: 'i'}}]
+      if (type === 'tc') return [
+        {name: {$regex: escaped, $options: 'i'}},
+        {content: {$regex: escaped, $options: 'i'}}
+      ];
+      if (type === 'c') return [{content: {$regex: escaped, $options: 'i'}}]; 
+      return []
+    })();
+    const threads = await db.collection('threads')
+      .find({$or})
+      .sort({id: -1}).limit(300)
+      .toArray();
+    const showContent = (type === 'tc');
+    res.render('search', {
+      threads, query, showContent
     });
   });
 

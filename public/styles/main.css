@@ -59,11 +59,21 @@ input, textarea {
   padding: 10px;
   margin-bottom: 30px;
 }
+.main-site-container .box-wrapper .search-wrapper {
+  padding: 10px;
+  background-color: #bc0000;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+.main-site-container .box-wrapper .search-wrapper label {
+  font-size: 12px;
+}
 .main-site-container .box-wrapper .input-wrapper {
   margin-bottom: 10px;
+  display: flex;
 }
 .main-site-container .box-wrapper .input-wrapper .thread-search {
-  border-radius: 10px;
+  border-radius: 10px 0px 0px 10px;
   background-color: #580b0b;
   color: white;
   font-size: 18px;
@@ -72,6 +82,15 @@ input, textarea {
 }
 .main-site-container .box-wrapper .input-wrapper .thread-search::placeholder {
   color: #a1a1a1;
+}
+.main-site-container .box-wrapper .input-wrapper .thread-search-btn {
+  border: 0px;
+  border-radius: 0px 10px 10px 0px;
+  outline: none;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  width: 90px;
 }
 .main-site-container .box-wrapper .thread-wrapper {
   transition: 0.2s;
@@ -146,6 +165,14 @@ input, textarea {
   color: white;
   font-size: 12px;
   color: #cccccc;
+}
+.main-site-container .box-wrapper .thread-wrapper .right .content {
+  color: white;
+  font-size: 13px;
+  margin: 10px 0px;
+  background-color: #700000;
+  padding: 10px;
+  border-radius: 10px;
 }
 .main-site-container .page-buttons {
   margin-top: 20px;

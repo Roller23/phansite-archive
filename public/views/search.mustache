@@ -22,10 +22,15 @@
     <div class="box-wrapper">
       <div class="search-wrapper">
         <div class="input-wrapper">
-          <input type="text" placeholder="Search for a thread" class="thread-search">
+          <input type="text" placeholder="Search for a thread" class="thread-search" value="{{query}}">
           <button type="button" class="thread-search-btn">Search</button>
         </div>
-        <input type="checkbox" id="search-content">
+        <input type="checkbox"
+          id="search-content"
+          {{#showContent}}
+            checked
+          {{/showContent}}
+          >
         <label for="search-content">Also search thread content</label>
       </div>
       <div class="threads-wrapper">
@@ -52,22 +57,15 @@
                   By {{creator}}, <span class="time" time="{{date}}"></span>
                 </div>
               </div>
+              {{#showContent}}
+                <div class="content">
+                  {{content}}
+                </div>
+              {{/showContent}}
             </a>
             <div class="sep"></div>
           </div>
         {{/threads}}
-        <div class="page-buttons">
-          {{#showPrev}}
-            <a href="/page/{{prevPage}}">
-              <button type="button" class="prev-page">Previous</button>
-            </a>
-          {{/showPrev}}
-          {{#showNext}}
-            <a href="/page/{{nextPage}}">
-              <button type="button" class="next-page">Next</button>
-            </a>
-          {{/showNext}}
-        </div>
       </div>
     </div>
   </div>
