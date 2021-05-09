@@ -11,6 +11,9 @@
   });
 
   const search = query => {
+    if (!query) {
+      return window.location.href = '/'
+    }
     if (query.length < 3) {
       return alert('Search query must be at least 3 characters');
     }
