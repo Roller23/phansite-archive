@@ -103,8 +103,12 @@ const threadsPerPage = 50;
       .sort({id: -1}).limit(300)
       .toArray();
     const showContent = (type === 'tc');
+    const topMessage = threads.length === 300 ?
+      'Showing the first 300 results for'
+      :
+      `Showing ${threads.length} result${threads.length !== 1 ? 's' : ''} for`;
     res.render('search', {
-      threads, query, showContent
+      threads, query, showContent, topMessage
     });
   });
 
