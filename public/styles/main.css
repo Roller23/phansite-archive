@@ -173,6 +173,7 @@ input, textarea {
   background-color: #700000;
   padding: 10px;
   border-radius: 10px;
+  word-break: break-word;
 }
 .main-site-container .page-buttons {
   margin-top: 20px;
